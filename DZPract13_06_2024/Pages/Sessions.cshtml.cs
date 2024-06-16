@@ -1,6 +1,8 @@
 using DZPract13_06_2024.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using MovieDataLibrary;
+using MovieLibrary;
 using System.IO;
 
 namespace DZPract13_06_2024.Pages
@@ -8,11 +10,13 @@ namespace DZPract13_06_2024.Pages
     public class SessionsModel : PageModel
     {
         public List<Movie> Movies { get; set; }
+        MovieData MovieData { get; set; }
+        /*public List<Movie> Movies { get; set; }*/
 
 
-        public SessionsModel()
+       /* public SessionsModel()
         {
-            Movies = new List<Movie>
+           Movies = new List<Movie>
             {
                 new Movie
                 {
@@ -65,11 +69,12 @@ namespace DZPract13_06_2024.Pages
 
             };
 
-        }
+        }*/
 
         public void OnGet()
         {
-            ViewData["Movies"] = Movies;
+            Movies = MovieData.GetMovies();
+            //ViewData["Movies"] = Movies;
         }
     }
 }
