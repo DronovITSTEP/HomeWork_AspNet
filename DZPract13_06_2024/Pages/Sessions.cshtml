@@ -1,0 +1,17 @@
+﻿@page 
+@model DZPract13_06_2024.Pages.SessionsModel
+@{
+	ViewBag["Title"] = "Расписание сеансов";
+}
+<h1>Расписание фильмов</h1>
+
+@foreach (var movie in Model.Movies)
+{
+	<h2>@movie.Name</h2>
+	<ul>
+		@foreach (var session in movie.Sessions)
+		{
+			<li>@session</li>
+		}
+	</ul>
+}
