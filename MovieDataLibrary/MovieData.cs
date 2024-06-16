@@ -20,10 +20,10 @@ namespace MovieDataLibrary
 					"но именно он выживает во время нападения медведя.",
 					Sessions=new List<DateTime>
 					{
-						new DateTime(13,06,2024,13,00,00),
-						new DateTime(13,06,2024,15,00,00),
-						new DateTime(13,06,2024,17,00,00)
-					}
+                        new DateTime(2024,10,06,16,00,00),
+                        new DateTime(2024,10,06,18,00,00),
+                        new DateTime(2024, 10, 06,20,00,00)
+                    }
 				},
 				new Movie
 				{
@@ -35,10 +35,10 @@ namespace MovieDataLibrary
 					"за здоровье мальчика, пробуя свою новую систему гимнастики в деле. ",
 					Sessions=new List<DateTime>
 					{
-						new DateTime(13,06,2024,10,00,00),
-						new DateTime(13,06,2024,12,00,00),
-						new DateTime(13,06,2024,14,00,00)
-					}
+                        new DateTime(2024,10,06,16,00,00),
+                        new DateTime(2024,10,06,18,00,00),
+                        new DateTime(2024, 10, 06,20,00,00)
+                    }
 				},
 				new Movie
 				{
@@ -52,9 +52,9 @@ namespace MovieDataLibrary
 					"предпосылки к дальнейшему творчеству автора знаменитых Хроник Нарнии.",
 					Sessions=new List<DateTime>
 					{
-						new DateTime(13,06,2024,16,00,00),
-						new DateTime(13,06,2024,18,00,00),
-						new DateTime(13,06,2024,20,00,00)
+						new DateTime(2024,10,06,16,00,00),
+						new DateTime(2024,10,06,18,00,00),
+						new DateTime(2024, 10, 06,20,00,00)
 					}
 				}
 

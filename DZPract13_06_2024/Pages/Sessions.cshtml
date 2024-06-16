@@ -1,10 +1,14 @@
-﻿@page 
+﻿@page "{handler?}"
 @model DZPract13_06_2024.Pages.SessionsModel
 @{
-	ViewBag["Title"] = "Расписание сеансов";
+	ViewData["Title"] = "Расписание сеансов";
 }
 <h1>Расписание фильмов</h1>
-
+<form method="get">
+	<label>Поиск фильма</label>
+	<input type="text" name="searchString" />
+	<input type="submit" asp-page-handler="Search" value="Поиск" />
+</form>
 @foreach (var movie in Model.Movies)
 {
 	<h2>@movie.Name</h2>
@@ -13,5 +17,7 @@
 		{
 			<li>@session</li>
 		}
+		<li><a asp-page="/EditMovie" asp-route-name="@movie.Name">Редактировать</a></li>
 	</ul>
+
 }
