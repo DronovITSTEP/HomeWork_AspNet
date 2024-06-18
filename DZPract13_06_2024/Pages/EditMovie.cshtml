@@ -1,19 +1,18 @@
 ﻿@page
 @model DZPract13_06_2024.Pages.EditMovieModel
 @{
-    ViewData["Title"] = "Редактирование";
+
 }
-<h2>Редактирование фильма</h2>
+<h2>@ViewData["Title"]</h2>
 <form method="post">
     <label asp-for="Movie.Name">Название</label>
-    <input asp-for="Movie.Name" type="text" value="@Model.Movie.Name" />
+    <input asp-for="Movie.Name" type="text" />
     <label asp-for="Movie.Director">Режиссер</label>
-    <input asp-for="Movie.Director" type="text" value="@Model.Movie.Director" />
+    <input asp-for="Movie.Director" type="text" />
     <label asp-for="Movie.Genre">Жанр</label>
-    <input asp-for="Movie.Genre"  type="text" value="@Model.Movie.Genre" />
+    <input asp-for="Movie.Genre"  type="text" />
     <label asp-for="Movie.PreviewText">Описание</label>
-    <input asp-for="Movie.PreviewText" type="text" 
-    value="@Model.Movie.PreviewText" />
+    <input asp-for="Movie.PreviewText" type="text"/>
 
     <input type="submit" value="Сохранить" />
 </form>

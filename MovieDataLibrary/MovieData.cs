@@ -61,5 +61,27 @@ namespace MovieDataLibrary
 			};
 		}
 		public List<Movie> GetMovies() => Movies;
+		public void EditMovie(Movie movie) {
+			var tempMovie = Movies.FirstOrDefault(x => x.Name == movie.Name);
+			if (tempMovie != null)
+			{
+				tempMovie.Name = movie.Name;
+				tempMovie.Director = movie.Director;
+				tempMovie.PreviewText = movie.PreviewText;
+				tempMovie.Genre = movie.Genre;
+			}
+			else
+			{
+				movie.Sessions = new List<DateTime>();
+				Movies.Add(movie);
+			}
+		}
+		public void DeleteMovie(Movie movie) {
+			var tempMovie = Movies.FirstOrDefault(x => x.Name == movie.Name);
+            if (tempMovie !=null)
+            {
+				Movies.Remove(tempMovie);
+            }
+        }
 	}
 }

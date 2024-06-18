@@ -47,5 +47,36 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        $(document).ready(function () {
+            let movieToDelete;
+            console.log("start");
+
+            $(".delete-button").click(function () {
+                console.log("button click");
+                movieToDelete = $(this).data("name");
+                $("#confirmDelete").show();
+            });
+
+            $("#confirmYes").click(function () {
+                console.log("yes click");
+                $.ajax({
+                    url: "/sessions/delete",
+                    type: 'POST',
+                    data: { name: movieToDelete },
+                    success: function (data) {
+                        alert(data);
+                        location.reload();
+                    }
+                });
+                $("#confirmDelete").hide();
+            });
+
+            $("#confirmNo").click(function () {
+                $("#confirmDelete").hide();
+            });
+
+        })
+    </script>
 </body>
 </html>

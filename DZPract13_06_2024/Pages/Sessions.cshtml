@@ -3,7 +3,7 @@
 @{
 	ViewData["Title"] = "Расписание сеансов";
 }
-<h1>Расписание фильмов</h1>
+<h1>@ViewData["Title"]</h1>
 <form method="get">
 	<label>Поиск фильма</label>
 	<input type="text" name="searchString" />
@@ -18,6 +18,19 @@
 			<li>@session</li>
 		}
 		<li><a asp-page="/EditMovie" asp-route-name="@movie.Name">Редактировать</a></li>
+		<li><button class="delete-button" asp-page-handler="Delete" data-name="@movie.Name">Удалить</button></li>
 	</ul>
 
 }
+<br />
+<a asp-page="/EditMovie">Добавить фильм</a>
+
+<div id="confirmDelete" class="confirm">
+	<div class="confirm-content"> 
+		<p>Вы уверены?</p>
+		<button id="confirmYes">Да</button>
+		<button id="confirmNo">Нет</button>
+	</div>
+</div>
+
+	

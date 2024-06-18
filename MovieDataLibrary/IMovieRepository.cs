@@ -11,5 +11,8 @@ namespace MovieDataLibrary
 	{
 		List <Movie> Movies { get; set; }
 		List<Movie> GetMovies();
+		void EditMovie(Movie movie);
+		void DeleteMovie(Movie movie);
+
 	}
 }

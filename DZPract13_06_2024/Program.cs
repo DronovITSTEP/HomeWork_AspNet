@@ -4,7 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddScoped<IMovieRepository, MovieData>();
+builder.Services.AddSingleton<IMovieRepository, MovieData>();
 
 var app = builder.Build();
 
