@@ -3,6 +3,7 @@
 @{
 	ViewData["Title"] = "Расписание сеансов";
 }
+@Html.AntiForgeryToken()
 <h1>@ViewData["Title"]</h1>
 <form method="get">
 	<label>Поиск фильма</label>
@@ -11,16 +12,15 @@
 </form>
 @foreach (var movie in Model.Movies)
 {
-	<h2>@movie.Name</h2>
+	<h2><a asp-page="/MovieDetail" asp-route-name="@movie.Name">@movie.Name</a></h2>
 	<ul>
 		@foreach (var session in movie.Sessions)
 		{
 			<li>@session</li>
 		}
 		<li><a asp-page="/EditMovie" asp-route-name="@movie.Name">Редактировать</a></li>
-		<li><button class="delete-button" asp-page-handler="Delete" data-name="@movie.Name">Удалить</button></li>
+		<li><button class="delete-button" data-name="@movie.Name">Удалить</button></li>
 	</ul>
-
 }
 <br />
 <a asp-page="/EditMovie">Добавить фильм</a>

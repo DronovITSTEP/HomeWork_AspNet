@@ -59,10 +59,11 @@
             });
 
             $("#confirmYes").click(function () {
-                console.log("yes click");
+                console.log(movieToDelete);
                 $.ajax({
-                    url: "/sessions/delete",
+                    url: "/Sessions?handler=Delete",
                     type: 'POST',
+                    headers: {"RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val()},
                     data: { name: movieToDelete },
                     success: function (data) {
                         alert(data);

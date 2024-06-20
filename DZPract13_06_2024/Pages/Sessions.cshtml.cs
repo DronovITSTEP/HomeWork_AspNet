@@ -10,6 +10,7 @@ namespace DZPract13_06_2024.Pages
     public class SessionsModel : PageModel
     {
         private readonly IMovieRepository _movieRepository;
+        [BindProperty]
         public List<Movie> Movies { get; set; }
 
 
@@ -28,7 +29,7 @@ namespace DZPract13_06_2024.Pages
             {
                 var movies = _movieRepository.Movies.Where(
                     m =>
-                    m.Name.Contains(searchString) ||
+                    m.Name.ToLower().Contains(searchString) ||
                     m.Genre.ToLower().Contains(searchString)
                 ).ToList();
                 Movies = movies;
@@ -40,9 +41,9 @@ namespace DZPract13_06_2024.Pages
         }
         public IActionResult OnPostDelete(string name)
         {
-            var delMovie = Movies.FirstOrDefault(m => m.Name == name);
+            var delMovie = _movieRepository.Movies.FirstOrDefault(m => m.Name == name);
             _movieRepository.DeleteMovie(delMovie);
-            return new JsonResult(true);
+            return new JsonResult(name + " удален");
         }
     }
 }
